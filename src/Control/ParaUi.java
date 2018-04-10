@@ -43,7 +43,7 @@ public class ParaUi extends Ui {
 		lblClientesAtendidos.setText("");
 		for (Iterator<Cliente> iterator = lista.getColaAtendida().iterator(); iterator.hasNext();) {
 			Cliente cliente = (Cliente) iterator.next();
-			lblClientesAtendidos.setText("\n"+lblClientesAtendidos.getText()+ cliente.toString() + "\n");
+			lblClientesAtendidos.setText(lblClientesAtendidos.getText()+ cliente.toString() + "\n");
 		}
 		lblMensaje.setText("Mostrando Lista clientes atendidos");
 	}
@@ -52,7 +52,7 @@ public class ParaUi extends Ui {
 		lblCola.setText("");
 		for (Iterator<Cliente> iterator = cola.getColaEspera().iterator(); iterator.hasNext();) {
 			Cliente cliente = (Cliente) iterator.next();
-			lblCola.setText("\n"+lblCola.getText() + cliente.toString()+"\n");
+			lblCola.setText(lblCola.getText() + cliente.toString()+"\n");
 		}
 		lblMensaje.setText("Mostrando cola de clientes");
 	}

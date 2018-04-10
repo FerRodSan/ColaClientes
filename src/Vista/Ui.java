@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.JTextPane;
 
 public class Ui extends JFrame {
 
@@ -24,10 +25,10 @@ public class Ui extends JFrame {
 	protected JTextField textNombre;
 	protected JTextField textTelefono;
 	protected JLabel lblMensaje;
-	protected JLabel lblCola;
+	protected JTextPane lblCola;
 	protected JButton btnAnadirCola;
 	protected JButton btnAtenderCliente;
-	protected JLabel lblClientesAtendidos;
+	protected JTextPane lblClientesAtendidos;
 
 	/**
 	 * Create the frame.
@@ -108,10 +109,8 @@ public class Ui extends JFrame {
 		gbc_btnAtenderCliente.gridy = 6;
 		contentPane.add(btnAtenderCliente, gbc_btnAtenderCliente);
 
-		lblCola = new JLabel("");
-		lblCola.setVerticalAlignment(SwingConstants.TOP);
+		lblCola = new JTextPane();
 		lblCola.setFont(new Font("Sitka Text", Font.BOLD, 13));
-		lblCola.setHorizontalAlignment(SwingConstants.LEFT);
 		lblCola.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.BLACK, null, null, null));
 		GridBagConstraints gbc_lblCola = new GridBagConstraints();
 		gbc_lblCola.fill = GridBagConstraints.BOTH;
@@ -120,9 +119,8 @@ public class Ui extends JFrame {
 		gbc_lblCola.gridy = 7;
 		contentPane.add(lblCola, gbc_lblCola);
 
-		lblClientesAtendidos = new JLabel("");
+		lblClientesAtendidos = new JTextPane();
 		lblClientesAtendidos.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.BLACK, null, null, null));
-		lblClientesAtendidos.setVerticalAlignment(SwingConstants.TOP);
 		GridBagConstraints gbc_lblClientesAtendidos = new GridBagConstraints();
 		gbc_lblClientesAtendidos.fill = GridBagConstraints.BOTH;
 		gbc_lblClientesAtendidos.insets = new Insets(0, 0, 5, 5);
