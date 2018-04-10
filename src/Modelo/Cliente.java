@@ -1,14 +1,18 @@
 package Modelo;
 
+import java.sql.Timestamp;
+
 public class Cliente implements Comparable<Cliente> {
 
 	private String nombre;
 	private String numTelefono;
+	private String fecha;
 
-	public Cliente(String nombre, String numTelefono) {
+	public Cliente(String nombre, String numTelefono, String fecha) {
 		super();
 		this.nombre = nombre;
 		this.numTelefono = numTelefono;
+		this.fecha = fecha;
 	}
 
 	public String getNombre() {
@@ -52,7 +56,15 @@ public class Cliente implements Comparable<Cliente> {
 
 	@Override
 	public String toString() {
-		return this.nombre + " : " + this.numTelefono;
+		return this.nombre + " : " + this.numTelefono+ " : "+this.fecha;
+	}
+	
+	/*
+	 * obtengo la hora, minutos, segundos y milisegundos al crear el cliente
+	 */
+	protected String obtenerFecha() {
+		String cadena = new Timestamp(System.currentTimeMillis()).toString();
+		return cadena.substring(cadena.indexOf(" ") + 1, cadena.length());
 	}
 
 }

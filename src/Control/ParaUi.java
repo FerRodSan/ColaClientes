@@ -2,6 +2,7 @@ package Control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Timestamp;
 import java.util.Iterator;
 
 import Modelo.Cliente;
@@ -20,24 +21,44 @@ public class ParaUi extends Ui {
 
 		btnAnadirCola.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cliente = new Cliente(textNombre.getText(), textTelefono.getText());
-				cola.agregarClienteCola(cliente);
-				lblMensaje.setText("Cliente añadido");
-				textNombre.setText("");
-				textTelefono.setText("");
-				muestraCola();
+				if (textNombre.getText().isEmpty()||textTelefono.getText().isEmpty()) {
+					lblMensaje.setText("espacio vacio, rellena bien los datos");
+				}else {
+					String fecha=obtenerFecha();
+					cliente = new Cliente(textNombre.getText(), textTelefono.getText(), fecha );
+					cola.agregarClienteCola(cliente);
+					lblFechaHora.setText(fecha);
+					lblMensaje.setText("Cliente añadido");
+					textNombre.setText("");
+					textTelefono.setText("");
+					muestraCola();
+				}
 			}
 		});
 
 		btnAtenderCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lista.eliminarClienteCola(cola);
-				lblMensaje.setText("Cliente atendido");
-				muestraCola();
-				muestraLista();
+				if (cola.getColaEspera().isEmpty()) {
+					lblMensaje.setText("No hay nadie en colaaaa!!");
+				} else {
+					lista.eliminarClienteCola(cola);
+					lblMensaje.setText("Cliente atendido");
+					muestraCola();
+					muestraLista();
+				}
 			}
 		});
 	}
+	
+	/*
+	 * obtengo la hora, minutos, segundos y milisegundos al crear el cliente
+	 */
+	protected String obtenerFecha() {
+		String cadena = new Timestamp(System.currentTimeMillis()).toString();
+		return cadena.substring(cadena.indexOf(" ") + 1, cadena.length());
+	}
+
+
 
 	/*
 	 * muestra la lista de gente atendida 

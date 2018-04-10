@@ -29,12 +29,13 @@ public class Ui extends JFrame {
 	protected JButton btnAnadirCola;
 	protected JButton btnAtenderCliente;
 	protected JTextPane lblClientesAtendidos;
+	protected JLabel lblFechaHora;
 
 	/**
 	 * Create the frame.
 	 */
 	public Ui() {
-		setMinimumSize(new Dimension(500, 400));
+		setMinimumSize(new Dimension(900, 400));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -42,9 +43,9 @@ public class Ui extends JFrame {
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[] { 0, 0, 0, 0, 0, 0 };
-		gbl_contentPane.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		gbl_contentPane.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		gbl_contentPane.columnWeights = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
-		gbl_contentPane.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0,
+		gbl_contentPane.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		contentPane.setLayout(gbl_contentPane);
 
@@ -68,10 +69,9 @@ public class Ui extends JFrame {
 
 		textNombre = new JTextField();
 		GridBagConstraints gbc_textNombre = new GridBagConstraints();
-		gbc_textNombre.gridwidth = 2;
 		gbc_textNombre.insets = new Insets(0, 0, 5, 5);
 		gbc_textNombre.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textNombre.gridx = 2;
+		gbc_textNombre.gridx = 3;
 		gbc_textNombre.gridy = 3;
 		contentPane.add(textNombre, gbc_textNombre);
 		textNombre.setColumns(10);
@@ -85,20 +85,34 @@ public class Ui extends JFrame {
 
 		textTelefono = new JTextField();
 		GridBagConstraints gbc_textTelefono = new GridBagConstraints();
-		gbc_textTelefono.gridwidth = 2;
 		gbc_textTelefono.insets = new Insets(0, 0, 5, 5);
 		gbc_textTelefono.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textTelefono.gridx = 2;
+		gbc_textTelefono.gridx = 3;
 		gbc_textTelefono.gridy = 4;
 		contentPane.add(textTelefono, gbc_textTelefono);
 		textTelefono.setColumns(10);
+		
+		JLabel lblHoraDeLlegada = new JLabel("Hora de llegada");
+		GridBagConstraints gbc_lblHoraDeLlegada = new GridBagConstraints();
+		gbc_lblHoraDeLlegada.insets = new Insets(0, 0, 5, 5);
+		gbc_lblHoraDeLlegada.gridx = 1;
+		gbc_lblHoraDeLlegada.gridy = 5;
+		contentPane.add(lblHoraDeLlegada, gbc_lblHoraDeLlegada);
+		
+		lblFechaHora = new JLabel("");
+		GridBagConstraints gbc_lblFechaHora = new GridBagConstraints();
+		gbc_lblFechaHora.fill = GridBagConstraints.BOTH;
+		gbc_lblFechaHora.insets = new Insets(0, 0, 5, 5);
+		gbc_lblFechaHora.gridx = 3;
+		gbc_lblFechaHora.gridy = 5;
+		contentPane.add(lblFechaHora, gbc_lblFechaHora);
 
 		btnAnadirCola = new JButton("A\u00F1adir a Cola");
 		GridBagConstraints gbc_btnAnadirCola = new GridBagConstraints();
 		gbc_btnAnadirCola.fill = GridBagConstraints.BOTH;
 		gbc_btnAnadirCola.insets = new Insets(0, 0, 5, 5);
 		gbc_btnAnadirCola.gridx = 1;
-		gbc_btnAnadirCola.gridy = 6;
+		gbc_btnAnadirCola.gridy = 7;
 		contentPane.add(btnAnadirCola, gbc_btnAnadirCola);
 
 		btnAtenderCliente = new JButton("Atender Cliente");
@@ -106,7 +120,7 @@ public class Ui extends JFrame {
 		gbc_btnAtenderCliente.fill = GridBagConstraints.BOTH;
 		gbc_btnAtenderCliente.insets = new Insets(0, 0, 5, 5);
 		gbc_btnAtenderCliente.gridx = 3;
-		gbc_btnAtenderCliente.gridy = 6;
+		gbc_btnAtenderCliente.gridy = 7;
 		contentPane.add(btnAtenderCliente, gbc_btnAtenderCliente);
 
 		lblCola = new JTextPane();
@@ -116,16 +130,17 @@ public class Ui extends JFrame {
 		gbc_lblCola.fill = GridBagConstraints.BOTH;
 		gbc_lblCola.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCola.gridx = 1;
-		gbc_lblCola.gridy = 7;
+		gbc_lblCola.gridy = 8;
 		contentPane.add(lblCola, gbc_lblCola);
 
 		lblClientesAtendidos = new JTextPane();
+		lblClientesAtendidos.setFont(new Font("Sitka Text", Font.BOLD, 13));
 		lblClientesAtendidos.setBorder(new BevelBorder(BevelBorder.LOWERED, Color.BLACK, null, null, null));
 		GridBagConstraints gbc_lblClientesAtendidos = new GridBagConstraints();
 		gbc_lblClientesAtendidos.fill = GridBagConstraints.BOTH;
 		gbc_lblClientesAtendidos.insets = new Insets(0, 0, 5, 5);
 		gbc_lblClientesAtendidos.gridx = 3;
-		gbc_lblClientesAtendidos.gridy = 7;
+		gbc_lblClientesAtendidos.gridy = 8;
 		contentPane.add(lblClientesAtendidos, gbc_lblClientesAtendidos);
 
 		lblMensaje = new JLabel("Aqui vamos poniendo que va pasando");
@@ -134,7 +149,7 @@ public class Ui extends JFrame {
 		gbc_lblMensaje.gridwidth = 3;
 		gbc_lblMensaje.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMensaje.gridx = 1;
-		gbc_lblMensaje.gridy = 8;
+		gbc_lblMensaje.gridy = 9;
 		contentPane.add(lblMensaje, gbc_lblMensaje);
 	}
 
