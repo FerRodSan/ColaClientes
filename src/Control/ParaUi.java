@@ -39,6 +39,9 @@ public class ParaUi extends Ui {
 		});
 	}
 
+	/*
+	 * muestra la lista de gente atendida
+	 */
 	private void muestraLista() {
 		lblClientesAtendidos.setText("");
 		for (Iterator<Cliente> iterator = lista.getColaAtendida().iterator(); iterator.hasNext();) {
@@ -48,6 +51,9 @@ public class ParaUi extends Ui {
 		lblMensaje.setText("Mostrando Lista clientes atendidos");
 	}
 
+	/*
+	 * muestra la cola del paro
+	 */
 	private void muestraCola() {
 		lblCola.setText("");
 		for (Iterator<Cliente> iterator = cola.getColaEspera().iterator(); iterator.hasNext();) {
