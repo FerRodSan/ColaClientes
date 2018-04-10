@@ -40,7 +40,7 @@ public class ParaUi extends Ui {
 	}
 
 	/*
-	 * muestra la lista de gente atendida
+	 * muestra la lista de gente atendida 
 	 */
 	private void muestraLista() {
 		lblClientesAtendidos.setText("");
